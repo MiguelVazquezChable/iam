@@ -43,7 +43,7 @@ Resources:
             Statement:
               - Effect: Allow
                 Action:
-                  - secretsmanager:GetSecretValue
+                  - secretsmanager:*
                 Resource: "*" # Actualiza con ARNs específicos de Secrets Manager.
 
 Outputs:
