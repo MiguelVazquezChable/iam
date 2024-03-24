@@ -53,7 +53,11 @@ Outputs:
   ECSExecutionRoleArn:
     Description: "ARN of ECS Execution Role"
     Value: !GetAtt ECSExecutionRole.Arn
+    Export:
+      Name: ECSExecutionRole
 
   ECSTaskRoleArn:
     Description: "ARN of ECS Task Role"
     Value: !GetAtt ECSTaskRole.Arn
+    Export:
+      Name: ECSTaskRole
