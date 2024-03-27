@@ -44,7 +44,7 @@ Resources:
               - Effect: Allow
                 Action:
                   - secretsmanager:*
-                Resource: "*" # Actualiza con ARNs específicos de Secrets Manager si es necesario.
+                Resource: "*" # Actualiza con ARNs específicos de Secrets Manager.
 
 Outputs:
   ECSExecutionRoleArn:
