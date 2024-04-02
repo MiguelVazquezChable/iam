@@ -39,18 +39,8 @@ Resources:
             Version: '2012-10-17'
             Statement:
               - Effect: Allow
-                Action:
-                  - secretsmanager:GetSecretValue
+                Action: "secretsmanager:GetSecretValue"
                 Resource: "arn:aws:secretsmanager:us-east-2:977685339165:secret:mariadb-secrets-dev-oylFre"
-              - Effect: Allow
-                Action:
-                  - "logs:CreateLogStream"
-                  - "logs:PutLogEvents"
-                  - "ecs:StartTask"
-                  - "ecs:StopTask"
-                  - "ecs:DescribeTasks"
-                  - "ecs:ListTasks"
-                Resource: "*" # Asegúrate de ajustar según tus necesidades y políticas de seguridad.
 
 Outputs:
   ECSExecutionRoleArn:
