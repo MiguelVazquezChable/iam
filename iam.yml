@@ -39,18 +39,19 @@ Resources:
             Version: '2012-10-17'
             Statement:
               - Effect: Allow
-                Action: "secretsmanager:GetSecretValue"
-                Resource: "arn:aws:secretsmanager:us-east-2:977685339165:secret:mariadb-secrets-dev-oylFre"
+                Action:
+                  - secretsmanager:*
+                Resource: "*" # Actualiza con ARNs específicos de Secrets Manager.
 
 Outputs:
   ECSExecutionRoleArn:
     Description: "ARN of ECS Execution Role"
     Value: !GetAtt ECSExecutionRole.Arn
     Export:
-      Name: !Sub "${AWS::StackName}-ECSExecutionRoleArn"
+      Name: ECSExecutionRole
 
   ECSTaskRoleArn:
     Description: "ARN of ECS Task Role"
     Value: !GetAtt ECSTaskRole.Arn
     Export:
-      Name: !Sub "${AWS::StackName}-ECSTaskRoleArn"
+      Name: ECSTaskRole
