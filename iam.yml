@@ -40,18 +40,21 @@ Resources:
             Statement:
               - Effect: Allow
                 Action:
-                  - secretsmanager:*
-                Resource: "*" # Actualiza con ARNs específicos de Secrets Manager.
+                  - "secretsmanager:GetSecretValue"
+                  - "secretsmanager:DescribeSecret"
+                  - "secretsmanager:ListSecretVersionIds"
+                Resource: "arn:aws:secretsmanager:us-east-2:977685339165:secret:my-app-env-Q93qmZ"
+                # Asegúrate de agregar cualquier otro ARN de secreto si es necesario.
 
 Outputs:
   ECSExecutionRoleArn:
     Description: "ARN of ECS Execution Role"
     Value: !GetAtt ECSExecutionRole.Arn
     Export:
-      Name: ECSExecutionRole
+      Name: !Sub "${AWS::StackName}-ECSExecutionRoleArn"
 
   ECSTaskRoleArn:
     Description: "ARN of ECS Task Role"
     Value: !GetAtt ECSTaskRole.Arn
     Export:
-      Name: ECSTaskRole
+      Name: !Sub "${AWS::StackName}-ECSTaskRoleArn"
